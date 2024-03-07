@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여행 기록</title>
+    <style>
+        @font-face {
+            font-family: 'KCCChassam';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCCChassam.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            background-color: #FFECD3;
+            font-family: 'KCCChassam';
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #87CEEB;
+            color: #FFECB3;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .travel-item {
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .travel-item img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 10px;
+        }
+        .slider-container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(128, 149, 150, 0.5);
+            color: #000000f6;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .description {
+            background-color: #f8f9fa;
+            border: 2px solid #17a2b8;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .description h2 {
+            color: #17a2b8;
+            margin-bottom: 10px;
+        }
+        .description p {
+            color: #343a40;
+            line-height: 1.5;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>나의 여행 기록👍</h1>
+</header>
+
+<div class="container">
+    <div class="travel-item">
+        <h2>오키나와😎</h2>
+        <div class="slider-container">
+            <div class="slides" id="slider1">
+                <div class="slide">
+                    <img src="img/brisbane1.JPG" alt="이미지 1">
+                    <div class="caption">코알라</div>
+                </div>
+                <div class="slide">
+                    <img src="img/brisbane2.JPG" alt="이미지 2">
+                    <div class="caption">캥거루</div>
+                </div>
+                <div class="slide">
+                    <img src="img/okinawa1.jpg" alt="이미지 2">
+                    <div class="caption">배경사진</div>
+                </div>
+                <div class="slide">
+                    <img src="img/okinawa2.jpg" alt="이미지 2">
+                    <div class="caption">카피바라</div>
+                </div>
+                <!-- 추가 이미지 슬라이드를 필요한 만큼 복사하여 붙여넣으세요. -->
+            </div>
+            <button class="prev" onclick="prevSlide(1)">&#10094;</button>
+            <button class="next" onclick="nextSlide(1)">&#10095;</button>
+        </div>
+        <div class="description">
+            <h2>2023.08.01~2023.08.02</h2>
+            <p><b>24.08.01</b><br>
+                19:00 인천공항에서 출발<br>
+                22:00 오키나와 공항 도착<br>
+                <br>
+                <b>24.08.02</b><br>
+                09:00 오키나와 소바먹기<br>
+                10:00 동물원 투어<br>
+                12:00 라멘<br>
+                18:00 타코먹기</p>
+        </div>
+    </div>
+    
+    <div class="travel-item">
+        <h2>하와이🛫</h2>
+        <div class="slider-container">
+            <div class="slides" id="slider2">
+                <div class="slide">
+                    <img src="img/hawaii1.jpg" alt="이미지 1">
+                    <div class="caption">부두</div>
+                </div>
+                <div class="slide">
+                    <img src="img/hawaii2.jpg" alt="이미지 2">
+                    <div class="caption">홍학</div>
+                </div>
+            </div>
+            <button class="prev" onclick="prevSlide(2)">&#10094;</button>
+            <button class="next" onclick="nextSlide(2)">&#10095;</button>
+        </div>
+        <div class="description">
+            <h2>2023.08.03~2023.08.05</h2>
+            <p><b>24.08.03</b><br>
+                09:00 오키나와공항에서 출발<br>
+                22:00 하와이 공항 도착<br>
+                <br>
+                <b>24.08.04</b><br>
+                09:00 하와이 해변가 걷기<br>
+                18:00 바베큐 먹기<br><br>
+                <b>24.08.05</b><br>
+                09:00 홍학 보기<br>
+                12:00 귀국
+        </div>
+    </div>
+    <!-- 추가적인 여행지 항목을 필요한 만큼 복사하여 붙여넣으세요. -->
+</div>
+
+<script>
+    let slideIndex1 = 0;
+    let slideIndex2 = 0;
+
+    function showSlides(sliderIndex) {
+        const slides = document.querySelectorAll(`#slider${sliderIndex} .slide`);
+        const totalSlides = slides.length;
+
+        slides.forEach(slide => {
+            slide.style.display = 'none';
+        });
+
+        let slideIndex = (sliderIndex === 1) ? slideIndex1 : slideIndex2;
+
+        if (slideIndex === totalSlides) {
+            slideIndex = 0;
+        } else if (slideIndex < 0) {
+            slideIndex = totalSlides - 1;
+        }
+
+        slides[slideIndex].style.display = 'block';
+
+        if (sliderIndex === 1) {
+            slideIndex1 = slideIndex;
+        } else {
+            slideIndex2 = slideIndex;
+        }
+    }
+
+    function nextSlide(sliderIndex) {
+        if (sliderIndex === 1) {
+            slideIndex1++;
+            showSlides(1);
+        } else {
+            slideIndex2++;
+            showSlides(2);
+        }
+    }
+
+    function prevSlide(sliderIndex) {
+        if (sliderIndex === 1) {
+            slideIndex1--;
+            showSlides(1);
+        } else {
+            slideIndex2--;
+            showSlides(2);
+        }
+    }
+
+    showSlides(1);
+    showSlides(2);
+</script>
+</body>
+</html>
